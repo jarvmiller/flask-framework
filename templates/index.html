@@ -14,12 +14,18 @@
   </head>
   <body>
         <div class="content">
-            <form action="/" method="GET">
+            <form action="/plot_vals" method="GET">
                 <label>
                     <b>Ticker Symbol</b>
                     <input name="ticker_symbol" type="text" placeholder="GOOG"/>
-                </label>
-
+                    <p></p>
+                    <p></p>
+                    <!-- <div><input name="Open" type="checkbox"/></div> -->
+                    <div><i>Open </i><input type="checkbox" name="Open" value="Open"></div>
+                    <div><i>Close </i><input name="Close" type="checkbox" value="Close"></div>
+                    <div><i>Adj. Open </i><input name="Adj. Open" type="checkbox" value="Adj. Open"></div>
+                    <div><i>Adj. Close </i><input name="Adj. Close" type="checkbox" value='Adj. Close'></div>
+                </label><p></p>
                 <button type="submit">Send</button>
             </form>
     <!-- Bootstrap core JavaScript
