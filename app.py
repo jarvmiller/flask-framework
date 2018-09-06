@@ -33,18 +33,19 @@ def plot_vals():
 
     p = figure(title="QUANDL data", x_axis_label='Date', x_axis_type='datetime')
     plot_vals = [open_, close_, adj_open, adj_close]
-    colors = ['orange', 'green', 'blue', 'red']
+    colors = {open_:'orange', close_:'green', adj_open:'blue', adj_close:'red'}
     ind = 0
     for feat in plot_vals:
         if feat is not None:
             leg = ticker_symbol.upper() + "-" + feat
             # add a line renderer with legend and line thickness
-            p.line(x=df['Date'], y=df[feat], legend=leg, line_width=1, color=colors[ind])
+            p.line(x=df['Date'], y=df[feat], legend=leg, line_width=1, color=colors[feat])
             ind += 1
     save(p)
     # Embed plot into HTML via Flask Render
-    # script, div = components(p)
-    return render_template('lines.html')
+    script, div = components(p)
+    return render_template('plot.html', script=script, div=div)
+    # return render_template('lines.html')
 
 if __name__ == '__main__':
     app.run(port=33507)
